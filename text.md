@@ -4,4 +4,8 @@ In our first edition we will be talking about Brad Frost's "Atomic Design". Come
 
 Also, Brad Frost wrote a free book on "Atomic Design", read it here -> https://atomicdesign.bradfrost.com/.
 
-Cu next wednesday!
+The Hague Tech has been so nice to offer a free lunch for everybody joining! Make use of this great offer by tagging this message with a food emoji!
+
+Cu wednesday!
+
+
