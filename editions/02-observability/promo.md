@@ -1,6 +1,6 @@
 ## The Computerclub 2nd Lunch Edition about Observability
 
-On Wednesday the 10th of April The Hague Tech will be hosting the second edition of The Computerclub. We will join in the Game Area to learn and chat about Observability!
+On Wednesday the 24th of April The Hague Tech will be hosting the second edition of The Computerclub. We will join in the Game Area to learn and chat about Observability!
 
 Enjoy a short presentation on the topic while eating a free lunch and then chat about it with your peers. We start at 12.00h, see you there!
 
