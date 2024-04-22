@@ -11,3 +11,4 @@ Put your name at this list to get a free lunch!
 - Sebastian Nilsson [Paylando.se](https://paylando.se)
 - Gijs Hogervorst (Aimlabs)
 - Bernard Bussy [Mesh](https://www.mesh.trade)
+- Joost Cassee ([Freightdog](https://freightdog.com))
