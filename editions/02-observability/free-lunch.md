@@ -10,3 +10,4 @@ Put your name at this list to get a free lunch!
 - Alex Mykhalevych (Nutripy)
 - Sebastian Nilsson [Paylando.se](https://paylando.se)
 - Gijs Hogervorst (Aimlabs)
+- Bernard Bussy [Mesh](https://www.mesh.trade)
