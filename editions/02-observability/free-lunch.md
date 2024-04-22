@@ -7,3 +7,4 @@ Put your name at this list to get a free lunch!
 - Joshua de Jong (THT)
 - Wes Oudshoorn (AppSignal)
 - Maurits Misana (BuchungApp)
+- Alex Mykhalevych (Nutripy)
