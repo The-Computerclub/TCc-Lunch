@@ -8,3 +8,4 @@ Put your name at this list to get a free lunch!
 - Wes Oudshoorn (AppSignal)
 - Maurits Misana (BuchungApp)
 - Alex Mykhalevych (Nutripy)
+- Sebastian Nilsson [Paylando.se](https://paylando.se)
