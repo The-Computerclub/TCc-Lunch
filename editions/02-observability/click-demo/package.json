@@ -8,7 +8,8 @@
     "packageManager": "npm@10.5.0",
     "scripts": {
       "spelling": "cspell",
-      "formatting": "prettier --check *"
+      "formatting": "prettier --check *",
+      "generate": "node ./scripts/generate.js"
     },
     "devDependencies": {
       "cspell": "^8.7.0",
