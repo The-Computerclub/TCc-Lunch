@@ -21,7 +21,13 @@
       "request": "launch",
       "name": "server",
       "program": "${workspaceFolder}/bundled/program.cjs",
-      "args": ["server", "--port", "8080"],
+      "args": [
+        "server",
+        "--port",
+        "8080",
+        "--pg-uri",
+        "postgres://postgres@localhost:5432/postgres"
+      ],
       "cwd": "${workspaceFolder}",
       "sourceMaps": true,
       "preLaunchTask": "build",

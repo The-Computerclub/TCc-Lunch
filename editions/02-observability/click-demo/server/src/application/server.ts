@@ -1,11 +1,10 @@
 import * as opentelemetry from "@opentelemetry/api";
 import * as api from "click-demo-api";
 import fs from "fs/promises";
-import { second } from "msecs";
 import * as oa42otel from "oa42-opentelemetry";
 import path from "path";
-import * as timers from "timers/promises";
 import { projectRoot } from "../root.js";
+import { withPgClient } from "../utils/pg-client.js";
 
 export type Server = api.Server<{}>;
 
@@ -26,8 +25,16 @@ export function createApplicationServer() {
     const { color } = incomingRequest.parameters;
 
     colorCounter.add(1, { color });
-
-    await timers.setTimeout(Math.random() * 2 * second + 0.1 * second);
+    await withPgClient(async (client) => {
+      client.query(
+        `
+          insert into colors(value)
+          values($1)
+          ;
+        `,
+        [color]
+      );
+    });
 
     return {
       parameters: {},

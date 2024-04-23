@@ -24,4 +24,11 @@ services:
     ports:
       - 9411:9411
 
-  
+  postgres:
+    image: postgres:16.2
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 5432:5432
+    volumes:
+      - ./configs/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
