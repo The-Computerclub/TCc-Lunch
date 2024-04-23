@@ -11,29 +11,23 @@ export type Server = api.Server<{}>;
 
 export function createApplicationServer() {
   const server = new api.Server<{}>();
+
+  // telemetry
+
   oa42otel.instrument(server);
+
+  const colorCounter = opentelemetry.metrics
+    .getMeter("server")
+    .createCounter("color_count");
 
   // operations!
 
   server.registerClickOperation(async (incomingRequest) => {
     const { color } = incomingRequest.parameters;
 
-    switch (color) {
-      case "red":
-        await timers.setTimeout(1 * second);
-        break;
+    colorCounter.add(1, { color });
 
-      case "green":
-        break;
-
-      case "blue":
-        await timers.setTimeout(0.5 * second);
-        break;
-
-      case "yellow":
-        await timers.setImmediate();
-        break;
-    }
+    await timers.setTimeout(Math.random() * 2 * second + 0.1 * second);
 
     return {
       parameters: {},
@@ -43,16 +37,6 @@ export function createApplicationServer() {
   });
 
   // middleware!
-
-  const requestCounter = opentelemetry.metrics
-    .getMeter("server")
-    .createCounter("request");
-
-  server.registerMiddleware(async (request, next) => {
-    requestCounter.add(1);
-    const response = await next(request);
-    return response;
-  });
 
   server.registerMiddleware(api.createErrorMiddleware());
 
