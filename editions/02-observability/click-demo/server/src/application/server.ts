@@ -71,7 +71,7 @@ export function createApplicationServer() {
     return {
       status: 200,
       headers: {
-        "content-type": "application/json",
+        "content-type": "application/javascript",
       },
       async *stream() {
         const data = await fs.readFile(

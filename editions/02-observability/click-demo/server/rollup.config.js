@@ -14,7 +14,7 @@ export default defineConfig([
       format: "iife",
       sourcemap: true,
     },
-    context: "global",
+    context: "window",
     plugins: [
       replace({
         values: {
