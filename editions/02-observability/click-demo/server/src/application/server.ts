@@ -6,10 +6,14 @@ import path from "path";
 import { projectRoot } from "../root.js";
 import { withPgClient } from "../utils/pg-client.js";
 
-export type Server = api.Server<{}>;
+export interface ServerAuthentication {
+  apiToken: { id: number };
+}
+
+export type Server = api.Server<ServerAuthentication>;
 
 export function createApplicationServer() {
-  const server = new api.Server<{}>();
+  const server = new api.Server<ServerAuthentication>();
 
   // telemetry
 
@@ -19,22 +23,47 @@ export function createApplicationServer() {
     .getMeter("server")
     .createCounter("color_count");
 
+  // authentication
+
+  server.registerApiTokenAuthentication(async (token) => {
+    const result = await withPgClient(async (client) =>
+      client.query(
+        `
+          select id
+          from tokens
+          where value = $1
+          ;
+        `,
+        [token]
+      )
+    );
+
+    if (result.rows.length !== 1) {
+      return;
+    }
+
+    const [row] = result.rows;
+    const id = row.id as number;
+
+    return { id };
+  });
+
   // operations!
 
   server.registerClickOperation(async (incomingRequest) => {
     const { color } = incomingRequest.parameters;
 
-    colorCounter.add(1, { color });
-    await withPgClient(async (client) => {
-      await client.query(
+    const result = await withPgClient(async (client) =>
+      client.query(
         `
           insert into colors(value)
           values($1)
           ;
         `,
         [color]
-      );
-    });
+      )
+    );
+    colorCounter.add(1, { color });
 
     return {
       parameters: {},

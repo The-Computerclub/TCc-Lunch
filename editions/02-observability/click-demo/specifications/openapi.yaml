@@ -3,6 +3,9 @@ info:
   title: API Title
   version: "1.0"
 
+security:
+  - api-token: []
+
 paths:
   /click:
     get:
@@ -21,3 +24,10 @@ paths:
       responses:
         "204":
           description: No Content
+
+components:
+  securitySchemes:
+    api-token:
+      type: apiKey
+      name: api-token
+      in: header

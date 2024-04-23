@@ -10,7 +10,9 @@ window.addEventListener("click", async (event) => {
         contentType: null,
         parameters: { color },
       },
-      {},
+      {
+        apiToken: "super-secret",
+      },
       { baseUrl: new URL("/", window.document.location.toString()) }
     );
   } finally {
