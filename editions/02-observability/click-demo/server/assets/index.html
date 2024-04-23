@@ -1,0 +1,52 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Click Demo</title>
+    <script src="browser.js"></script>
+    <style>
+      body {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+
+      body.busy {
+        opacity: 0.5;
+      }
+
+      .color {
+        width: 50%;
+        height: 50%;
+        position: absolute;
+      }
+
+      #red {
+        background-color: red;
+        left: 0;
+        top: 0;
+      }
+      #green {
+        background-color: green;
+        right: 0;
+        top: 0;
+      }
+      #blue {
+        background-color: blue;
+        left: 0;
+        bottom: 0;
+      }
+      #yellow {
+        background-color: yellow;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="color" data-color="red" id="red"></div>
+    <div class="color" data-color="green" id="green"></div>
+    <div class="color" data-color="blue" id="blue"></div>
+    <div class="color" data-color="yellow" id="yellow"></div>
+  </body>
+</html>

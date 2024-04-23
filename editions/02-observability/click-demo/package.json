@@ -1,0 +1,19 @@
+{
+    "private": true,
+    "type": "module",
+    "workspaces": [
+        ".api",
+        "server"
+    ],
+    "packageManager": "npm@10.5.0",
+    "scripts": {
+      "spelling": "cspell",
+      "formatting": "prettier --check *"
+    },
+    "devDependencies": {
+      "cspell": "^8.7.0",
+      "oa42-generator": "^0.9.16",
+      "prettier": "^3.2.5"
+    }
+  }
+  

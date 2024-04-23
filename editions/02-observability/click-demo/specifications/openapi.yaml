@@ -1,0 +1,23 @@
+openapi: "3.0.2"
+info:
+  title: API Title
+  version: "1.0"
+
+paths:
+  /click:
+    get:
+      operationId: click
+      parameters:
+        - in: query
+          name: color
+          required: true
+          schema:
+            type: string
+            enum:
+              - red
+              - green
+              - blue
+              - yellow
+      responses:
+        "204":
+          description: No Content

@@ -1,0 +1,44 @@
+{
+  "name": "click-demo",
+  "private": true,
+  "sideEffects": false,
+  "description": "",
+  "type": "module",
+  "bin": {
+    "click-demo": "bundled/program.js"
+  },
+  "main": "out/main.js",
+  "types": "out/main.d.ts",
+  "files": [
+    "bin/*",
+    "out/*",
+    "src/*"
+  ],
+  "scripts": {
+    "prepack": "node ./scripts/build.js",
+    "pretest": "tsc",
+    "build": "node ./scripts/build.js",
+    "test": "node --test ./transpiled/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:The-Computerclub/TCc-Lunch.git"
+  },
+  "author": "LuvDaSun Software B.V.",
+  "license": "ISC",
+  "homepage": "https://www.LuvDaSun.software",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-replace": "^5.0.5",
+    "@tsconfig/node20": "^20.1.2",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "@types/node": "^20.11.26",
+    "@types/yargs": "^17.0.32",
+    "msecs": "^1.0.3",
+    "tslib": "^2.6.2",
+    "type-fest": "^4.6.0",
+    "yargs": "^17.7.2"
+  }
+}

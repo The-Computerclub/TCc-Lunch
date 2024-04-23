@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "path": "specifications",
+    },
+    {
+      "path": "server",
+    },
+  ],
+  "settings": {
+    "npm.packageManager": "npm",
+    "window.title": "Click Demo",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "always",
+      "source.organizeImports": "always",
+    },
+    "editor.rulers": [100],
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+}
