@@ -16,7 +16,7 @@ import { NodeSDK, logs, metrics, tracing } from "@opentelemetry/sdk-node";
 
   const tracerProvider = new tracing.BasicTracerProvider({});
   tracerProvider.addSpanProcessor(otlpSpanProcessor);
-  tracerProvider.addSpanProcessor(consoleSpanProcessor);
+  // tracerProvider.addSpanProcessor(consoleSpanProcessor);
 
   tracerProvider.register();
 }
@@ -31,7 +31,7 @@ import { NodeSDK, logs, metrics, tracing } from "@opentelemetry/sdk-node";
     new logs.ConsoleLogRecordExporter()
   );
   loggerProvider.addLogRecordProcessor(otlpLogProcessor);
-  loggerProvider.addLogRecordProcessor(consoleLogProcessor);
+  // loggerProvider.addLogRecordProcessor(consoleLogProcessor);
 }
 
 {
@@ -39,13 +39,16 @@ import { NodeSDK, logs, metrics, tracing } from "@opentelemetry/sdk-node";
     exporter: new OTLPMetricExporter(),
     exportIntervalMillis: 5000,
   });
-  const consoleMetricReader = new metrics.PeriodicExportingMetricReader({
-    exporter: new metrics.ConsoleMetricExporter(),
-    exportIntervalMillis: 5000,
-  });
+  // const consoleMetricReader = new metrics.PeriodicExportingMetricReader({
+  //   exporter: new metrics.ConsoleMetricExporter(),
+  //   exportIntervalMillis: 5000,
+  // });
 
   const meterProvider = new metrics.MeterProvider({
-    readers: [otlpMetricReader, consoleMetricReader],
+    readers: [
+      otlpMetricReader,
+      // consoleMetricReader,
+    ],
   });
 
   opentelemetry.metrics.setGlobalMeterProvider(meterProvider);

@@ -45,4 +45,24 @@ export default defineConfig([
       }),
     ],
   },
+
+  {
+    external,
+    input: path.resolve("transpiled", "otel.js"),
+    output: {
+      file: path.resolve("bundled", "otel.cjs"),
+      // compile to commonjs to make all otel automatic instrumentation work
+      format: "commonjs",
+      sourcemap: true,
+    },
+    context: "global",
+    plugins: [
+      replace({
+        values: {
+          "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+        },
+        preventAssignment: true,
+      }),
+    ],
+  },
 ]);

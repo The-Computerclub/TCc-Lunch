@@ -21,6 +21,7 @@
       "request": "launch",
       "name": "server",
       "program": "${workspaceFolder}/bundled/program.cjs",
+      "runtimeArgs": ["--require", "./bundled/otel.cjs"],
       "args": [
         "server",
         "--port",
