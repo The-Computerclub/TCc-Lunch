@@ -26,7 +26,7 @@ export function createApplicationServer() {
 
     colorCounter.add(1, { color });
     await withPgClient(async (client) => {
-      client.query(
+      await client.query(
         `
           insert into colors(value)
           values($1)
