@@ -32,8 +32,6 @@ import { NodeSDK, logs, metrics, tracing } from "@opentelemetry/sdk-node";
   );
   loggerProvider.addLogRecordProcessor(otlpLogProcessor);
   loggerProvider.addLogRecordProcessor(consoleLogProcessor);
-
-  // register loggerProvider here, but how?
 }
 
 {
@@ -59,4 +57,4 @@ import { NodeSDK, logs, metrics, tracing } from "@opentelemetry/sdk-node";
   registerInstrumentations({ instrumentations });
 }
 
-export const sdk = new NodeSDK({});
+export const sdk = new NodeSDK();
