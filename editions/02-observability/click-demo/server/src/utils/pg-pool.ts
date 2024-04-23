@@ -1,5 +1,5 @@
 import { AsyncLocalStorage } from "async_hooks";
-import pg from "pg";
+import type pg from "pg";
 
 export interface PgPoolConfiguration {
   pgUri: string;
@@ -11,6 +11,8 @@ export async function withPgPool<T>(
   configuration: PgPoolConfiguration,
   job: (pool: pg.Pool) => Promise<T>
 ): Promise<T> {
+  // this "trick" is needed to make pg work with otel
+  const pg = require("pg");
   const { pgUri } = configuration;
 
   const pgPool = new pg.Pool({ connectionString: pgUri });

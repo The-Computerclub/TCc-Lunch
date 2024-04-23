@@ -1,5 +1,5 @@
 import { AsyncLocalStorage } from "async_hooks";
-import pg from "pg";
+import type pg from "pg";
 import { usePgPool } from "./pg-pool.js";
 
 const storage = new AsyncLocalStorage<pg.PoolClient>();

@@ -1,6 +1,3 @@
-// this first
-import "@opentelemetry/auto-instrumentations-node/register";
-
 import { hideBin } from "yargs/helpers";
 import yargs from "yargs/yargs";
 import * as programs from "./programs/index.js";
