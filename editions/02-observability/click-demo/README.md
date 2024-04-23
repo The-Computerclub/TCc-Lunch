@@ -13,3 +13,5 @@ Make sure you have docker running! Then run `docker-compose up --wait` to start 
 Then go to `http://localhost:8080` and click away! Zipkin (traces) is at `http://http://localhost:9411` and Prometheus (metrics) is at `http://localhost:9090`.
 
 
+Try this in prometheus: `increase(color_count_total[1m])`.
+\o/
