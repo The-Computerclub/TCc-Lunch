@@ -20,11 +20,10 @@
       "type": "node",
       "request": "launch",
       "name": "server",
-      "program": "${workspaceFolder}/src/program.ts",
+      "program": "${workspaceFolder}/bundled/program.cjs",
       "args": ["server", "--port", "8080"],
       "cwd": "${workspaceFolder}",
       "sourceMaps": true,
-      "outFiles": ["${workspaceFolder}/transpiled/**/*.js"],
       "preLaunchTask": "build",
       "outputCapture": "std"
     }

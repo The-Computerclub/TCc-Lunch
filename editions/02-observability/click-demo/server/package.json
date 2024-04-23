@@ -1,5 +1,5 @@
 {
-  "name": "click-demo",
+  "name": "click-demo-server",
   "private": true,
   "sideEffects": false,
   "description": "",
@@ -34,9 +34,17 @@
     "typescript": "^5.4.2"
   },
   "dependencies": {
+    "@opentelemetry/api": "^1.8.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.44.0",
+    "@opentelemetry/exporter-logs-otlp-http": "^0.50.0",
+    "@opentelemetry/exporter-metrics-otlp-http": "^0.50.0",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.50.0",
+    "@opentelemetry/instrumentation": "^0.50.0",
+    "@opentelemetry/sdk-node": "^0.50.0",
     "@types/node": "^20.11.26",
     "@types/yargs": "^17.0.32",
     "msecs": "^1.0.3",
+    "oa42-opentelemetry": "^0.1.19",
     "tslib": "^2.6.2",
     "type-fest": "^4.6.0",
     "yargs": "^17.7.2"

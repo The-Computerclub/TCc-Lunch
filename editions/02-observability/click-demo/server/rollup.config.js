@@ -25,29 +25,13 @@ export default defineConfig([
       nodeResolve(),
     ],
   },
-  {
-    external,
-    input: path.resolve("transpiled", "program.js"),
-    output: {
-      file: path.resolve("bundled", "program.js"),
-      format: "module",
-      sourcemap: true,
-    },
-    context: "global",
-    plugins: [
-      replace({
-        values: {
-          "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
-        },
-        preventAssignment: true,
-      }),
-    ],
-  },
+
   {
     external,
     input: path.resolve("transpiled", "program.js"),
     output: {
       file: path.resolve("bundled", "program.cjs"),
+      // compile to commonjs to make all otel automatic instrumentation work
       format: "commonjs",
       sourcemap: true,
     },

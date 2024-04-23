@@ -1,6 +1,7 @@
 import { listen } from "click-demo-api";
 import * as yargs from "yargs";
 import * as application from "../application/index.js";
+import * as otel from "../otel.js";
 import { waitForSignal } from "../utils/index.js";
 
 export function configureServerProgram(argv: yargs.Argv) {
@@ -25,15 +26,19 @@ async function main(configuration: MainConfiguration) {
   const { port } = configuration;
 
   console.info("Starting server...");
+  otel.sdk.start();
+  try {
+    const server = application.createApplicationServer();
+    await using listener = await listen(server, { port });
 
-  const server = application.createApplicationServer();
-  await using listener = await listen(server, { port });
+    console.info(`Server started (${listener.port})`);
 
-  console.info(`Server started (${listener.port})`);
+    await waitForSignal("SIGINT", "SIGTERM");
 
-  await waitForSignal("SIGINT", "SIGTERM");
-
-  console.info("Stopping server...");
+    console.info("Stopping server...");
+  } finally {
+    await otel.sdk.shutdown();
+  }
 
   console.info("Server stopped");
 }

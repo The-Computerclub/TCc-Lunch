@@ -1,6 +1,8 @@
+import * as opentelemetry from "@opentelemetry/api";
 import * as api from "click-demo-api";
 import fs from "fs/promises";
 import { second } from "msecs";
+import * as oa42otel from "oa42-opentelemetry";
 import path from "path";
 import * as timers from "timers/promises";
 import { projectRoot } from "../root.js";
@@ -9,6 +11,7 @@ export type Server = api.Server<{}>;
 
 export function createApplicationServer() {
   const server = new api.Server<{}>();
+  oa42otel.instrument(server);
 
   // operations!
 
@@ -41,12 +44,23 @@ export function createApplicationServer() {
 
   // middleware!
 
+  const requestCounter = opentelemetry.metrics
+    .getMeter("server")
+    .createCounter("request");
+
+  server.registerMiddleware(async (request, next) => {
+    requestCounter.add(1);
+    const response = await next(request);
+    return response;
+  });
+
   server.registerMiddleware(api.createErrorMiddleware());
 
   // serve a static file
   server.registerMiddleware(async (request, next) => {
     if (request.path !== "/") {
-      return next(request);
+      const response = await next(request);
+      return response;
     }
 
     return {
@@ -66,7 +80,8 @@ export function createApplicationServer() {
   // serve a static file
   server.registerMiddleware(async (request, next) => {
     if (request.path !== "/browser.js") {
-      return next(request);
+      const response = await next(request);
+      return response;
     }
 
     return {
