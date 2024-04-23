@@ -78,44 +78,61 @@ export function createApplicationServer() {
 
   // serve a static file
   server.registerMiddleware(async (request, next) => {
-    if (request.path !== "/") {
-      const response = await next(request);
-      return response;
+    if (request.method === "GET") {
+      switch (request.path) {
+        case "/":
+          return {
+            status: 200,
+            headers: {
+              "content-type": "text/html",
+            },
+            async *stream() {
+              const data = await fs.readFile(
+                path.join(projectRoot, "assets", "index.html")
+              );
+              yield data;
+            },
+          };
+
+        case "/favicon.ico":
+          return {
+            status: 204,
+            headers: {},
+            async *stream() {},
+          };
+
+        case "/browser.js":
+          return {
+            status: 200,
+            headers: {
+              "content-type": "application/javascript",
+            },
+            async *stream() {
+              const data = await fs.readFile(
+                path.join(projectRoot, "bundled", "browser.js")
+              );
+              yield data;
+            },
+          };
+
+        case "/browser.js.map":
+          return {
+            status: 200,
+            headers: {
+              "content-type": "application/javascript",
+            },
+            async *stream() {
+              const data = await fs.readFile(
+                path.join(projectRoot, "bundled", "browser.js.map")
+              );
+              yield data;
+            },
+          };
+      }
     }
 
-    return {
-      status: 200,
-      headers: {
-        "content-type": "text/html",
-      },
-      async *stream() {
-        const data = await fs.readFile(
-          path.join(projectRoot, "assets", "index.html")
-        );
-        yield data;
-      },
-    };
-  });
-
-  // serve a static file
-  server.registerMiddleware(async (request, next) => {
-    if (request.path !== "/browser.js") {
-      const response = await next(request);
-      return response;
-    }
-
-    return {
-      status: 200,
-      headers: {
-        "content-type": "application/javascript",
-      },
-      async *stream() {
-        const data = await fs.readFile(
-          path.join(projectRoot, "bundled", "browser.js")
-        );
-        yield data;
-      },
-    };
+    const response = await next(request);
+    return response;
   });
 
   return server;
