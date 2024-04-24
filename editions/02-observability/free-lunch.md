@@ -6,3 +6,11 @@ Put your name at this list to get a free lunch!
 - Joshua de Jong (THT)
 - Wes Oudshoorn (AppSignal)
 - Zsombor Vakán
+- Maurits Misana (BuchungApp)
+- Alex Mykhalevych (Nutripy)
+- Sebastian Nilsson [Paylando.se](https://paylando.se)
+- Gijs Hogervorst (Aimlabs)
+- Bernard Bussy [Mesh](https://www.mesh.trade)
+- Joost Cassee ([Freightdog](https://freightdog.com))
+- Tomas Kubla ([Kiblik](https://github.com/kiblik))
+- Anton Kouliavtsev ([kouliavtsev](https://github.com/kouliavtsev))
