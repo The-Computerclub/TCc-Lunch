@@ -5,6 +5,7 @@ Put your name at this list to get a free lunch!
 - Elmer Bulthuis (LuvDaSun)
 - Joshua de Jong (THT)
 - Wes Oudshoorn (AppSignal)
+- Zsombor Vakán
 - Maurits Misana (BuchungApp)
 - Alex Mykhalevych (Nutripy)
 - Sebastian Nilsson [Paylando.se](https://paylando.se)
