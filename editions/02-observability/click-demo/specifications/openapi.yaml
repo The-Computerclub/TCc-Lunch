@@ -1,0 +1,33 @@
+openapi: "3.0.2"
+info:
+  title: API Title
+  version: "1.0"
+
+security:
+  - api-token: []
+
+paths:
+  /click:
+    get:
+      operationId: click
+      parameters:
+        - in: query
+          name: color
+          required: true
+          schema:
+            type: string
+            enum:
+              - red
+              - green
+              - blue
+              - yellow
+      responses:
+        "204":
+          description: No Content
+
+components:
+  securitySchemes:
+    api-token:
+      type: apiKey
+      name: api-token
+      in: header

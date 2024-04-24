@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "run file",
+      "program": "${file}",
+      "args": [],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "outFiles": ["${workspaceFolder}/transpiled/**/*.js"],
+      "preLaunchTask": "build",
+      "outputCapture": "std"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "server",
+      "program": "${workspaceFolder}/bundled/program.cjs",
+      "runtimeArgs": ["--require", "./bundled/otel.cjs"],
+      "args": [
+        "server",
+        "--port",
+        "8080",
+        "--pg-uri",
+        "postgres://postgres@localhost:5432/postgres"
+      ],
+      "cwd": "${workspaceFolder}",
+      "sourceMaps": true,
+      "preLaunchTask": "build",
+      "outputCapture": "std"
+    }
+  ]
+}

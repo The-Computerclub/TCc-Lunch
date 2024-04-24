@@ -1,7 +1,23 @@
 version: "0.2"
 words:
+  - Alertmanager
+  - alertmanagers
   - Bulthuis
   - Computerclub
+  - esbenp
+  - iife
+  - initdb
+  - Millis
+  - openapi
+  - opentelemetry
+  - openzipkin
+  - otel
+  - otelcol
+  - OTLP
+  - pprof
+  - prestart
+  - zipkin
+  - zpages
 useGitignore: true
 files:
   - "**"
