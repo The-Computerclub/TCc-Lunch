@@ -6,3 +6,4 @@ Put your name at this list to get a free lunch!
 - Anton Kouliavtsev ([kouliavtsev](https://github.com/kouliavtsev))
 - Guido Jongen - Virtually Human
 - Tomas Kubla ([Kiblik](https://github.com/kiblik))
+- Maurits Misana [BuchungApp](https://www.buchungapp.com)
