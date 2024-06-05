@@ -9,3 +9,4 @@ Put your name at this list to get a free lunch!
 - Maurits Misana [BuchungApp](https://www.buchungapp.com)
 - Alexander van Gessel ([ai0867](https://github.com/ai0867))
 - Travis Frank ([travismfrank](https://github.com/travismfrank))
+- Sebastian Nilsson ([paylando](https://paylando.se))
